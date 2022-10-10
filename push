@@ -1,0 +1,31 @@
+#!/bin/bash
+
+#Stage everything                                                             
+git add .                                                                                                                               
+                                                                                                                                        
+#get Commit message                                                                                                                     
+commitMessage=$1                                                                                                                        
+ 
+#Yellow color for warning message.
+Yellow='\033[0;33m'
+
+#commit with message                                                                                                                    
+if [ -z $commitMessage ]                                                                                                                 
+    then
+    	echo "${Yellow}Warning: commiting without a message"                                                                                                                          
+        git commit -m "No message commit"
+                                                                                               
+    else                                                                                                                            
+        git commit -m $commitMessage   
+fi                                                                                       
+
+#get origin branch, can be empty                                                                                                        
+origin=$2
+
+#push to origin, if origin p
+if [ -z $origin ]                                                                                                                 
+    then                                                                                                                            
+        git push                                                                                               
+    else
+    	git push -u origin $origin                                                                                                                          
+fi                                                                                                                              
