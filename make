@@ -13,7 +13,7 @@ if [ -f $fileName ]; then
 	rm $fileName
 fi
 		
-fileText="${shebang}\n${script}"
+fileText="${shebang}\n${script}\n"
 
 echo "Full script is: ${fileText}"
 
